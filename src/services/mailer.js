@@ -1,32 +1,58 @@
 const nodemailer = require('nodemailer');
+const Email = require('email-templates');
 
 const isDev = process.env.NODE_ENV !== 'production';
+const sender = process.env.EMAIL_SENDER;
 
 /**
- * Send the given email
- * @param {object} email
- * @param {string} email.from
- * @param {string} email.to
- * @param {string} email.subject
- * @param {string} email.text
- * @param {string} email.html
- * @returns {Promise}
+ * Get transport of the email
  */
-const sender = (email) => {
-  const auth = {};
-  if (!isDev) {
-    auth.user = process.env.SMTP_USER;
-    auth.pass = process.env.SMTP_PASSWORD;
+const getTransport = () => {
+  if (isDev) {
+    return nodemailer.createTransport({
+      host: process.env.SMTP_HOST,
+      port: process.env.SMTP_PORT,
+    });
   }
 
+  const auth = {
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASSWORD,
+  };
+
   const transporter = nodemailer.createTransport({
-    host: process.env.SMTP_HOST,
-    port: process.env.SMTP_PORT,
-    secure: false,
+    service: 'gmail',
     auth,
   });
 
-  return transporter.sendMail(email);
+  return transporter;
 };
 
-module.exports = sender;
+/**
+ * Send the given email
+ * @param {object} config
+ * @param {string} config.email
+ * @param {string} config.type
+ * @param {object} config.data
+ * @returns {Promise}
+ */
+const send = (config) => {
+  const email = new Email({
+    message: {
+      from: sender,
+    },
+    send: true,
+    preview: false,
+    transport: getTransport(),
+  });
+
+  return email.send({
+    template: config.type.replace(/\./g, '/'),
+    message: {
+      to: config.email,
+    },
+    locals: config.data,
+  });
+};
+
+module.exports = send;
