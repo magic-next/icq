@@ -24,7 +24,7 @@ img {
 .confirm-button a {
   display: inline-block;
   margin: auto;
-  padding: 1rem;
+  padding: 1rem 1.5rem;
   font-size: 10pt;
   border-radius: 5px;
   color: white;
