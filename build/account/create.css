@@ -29,6 +29,7 @@ img {
   border-radius: 5px;
   color: white;
   background-color: #4757FE;
+  text-decoration: none;
 }
 small {
   color: #333;

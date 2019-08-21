@@ -6,6 +6,7 @@ const handler = async (ctx) => {
     await mailer(body);
     ctx.body = { success: true };
   } catch (error) {
+    console.error(error);
     ctx.status = 500;
     ctx.body = { success: false };
   }
