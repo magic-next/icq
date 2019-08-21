@@ -3,7 +3,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-size: 11pt;
 }
-main {
+.main {
   margin: auto;
   padding: 2rem;
   width: 50%;

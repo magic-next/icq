@@ -41,6 +41,12 @@ const send = (config) => {
     message: {
       from: sender,
     },
+    juiceResources: {
+      preserveImportant: true,
+      webResources: {
+        images: true,
+      },
+    },
     send: true,
     preview: false,
     transport: getTransport(),
