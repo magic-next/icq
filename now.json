@@ -1,0 +1,29 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "/src/app.js",
+      "use": "@now/node",
+      "config": {
+        "includeFiles": ["build/**", "emails/**"]
+      }
+    }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "/src/app.js" }
+  ],
+  "build": {
+    "env": {
+      "APPLICATION_KEY": "@icq-key", 
+      "SMTP_USER": "@smtp-user",
+      "SMTP_PASSWORD": "@smtp-pass",
+      "EMAIL_SENDER": "Magic Next <me@zerodois.dev>"
+    }
+  },
+  "env": {
+    "APPLICATION_KEY": "@icq-key", 
+    "SMTP_USER": "@smtp-user",
+    "SMTP_PASSWORD": "@smtp-pass", 
+    "EMAIL_SENDER": "Magic Next <me@zerodois.dev>"
+  }
+}
