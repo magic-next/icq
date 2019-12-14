@@ -15,16 +15,17 @@
   ],
   "build": {
     "env": {
-      "APPLICATION_KEY": "@icq-key", 
+      "APPLICATION_KEY": "@icq-key",
       "SMTP_USER": "@smtp-user",
       "SMTP_PASSWORD": "@smtp-pass",
       "EMAIL_SENDER": "Magic Next <me@zerodois.dev>"
     }
   },
   "env": {
-    "APPLICATION_KEY": "@icq-key", 
+    "APPLICATION_KEY": "@icq-key",
     "SMTP_USER": "@smtp-user",
-    "SMTP_PASSWORD": "@smtp-pass", 
+    "SMTP_HOST": "@smtp-host",
+    "SMTP_PASSWORD": "@smtp-pass",
     "EMAIL_SENDER": "Magic Next <me@zerodois.dev>"
   }
 }
