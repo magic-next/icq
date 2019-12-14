@@ -8,22 +8,20 @@ const sender = process.env.EMAIL_SENDER;
  * Get transport of the email
  */
 const getTransport = () => {
+  const config = {
+    host: process.env.SMTP_HOST,
+    port: process.env.SMTP_PORT,
+  };
   if (isDev) {
-    return nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: process.env.SMTP_PORT,
-    });
+    return nodemailer.createTransport(config);
   }
 
-  const auth = {
+  config.auth = {
     user: process.env.SMTP_USER,
     pass: process.env.SMTP_PASSWORD,
   };
 
-  const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth,
-  });
+  const transporter = nodemailer.createTransport(config);
 
   return transporter;
 };
