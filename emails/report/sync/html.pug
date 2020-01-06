@@ -1,0 +1,16 @@
+head
+  link(rel="stylesheet", href="/css/account/create.css", data-inline)
+body
+  div.main
+    div.center
+      img(alt="Logo Magic Next", src="https://raw.githubusercontent.com/magic-next/icq/master/build/images/v2.png")
+    h3 Relatório de sincronização de decks Ligamagic
+    p Foram sincronizados <b>#{success}</b> decks com sucessos
+    if errors.length > 0
+      p Foram encontrados <b>#{errors.length}</b> erros durante a sincronização:
+        ul
+          each val in errors
+            li= val
+    else
+      p Nenhum erro encontrado durante a sincronização (Viva!?)
+    p - Equipe Magic Next

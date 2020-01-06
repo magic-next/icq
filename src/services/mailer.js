@@ -10,7 +10,7 @@ const sender = process.env.EMAIL_SENDER;
 const getTransport = () => {
   const config = {
     host: process.env.SMTP_HOST,
-    port: process.env.SMTP_PORT,
+    port: parseInt(process.env.SMTP_PORT, 10),
   };
   if (isDev) {
     return nodemailer.createTransport(config);
