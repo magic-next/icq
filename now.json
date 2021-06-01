@@ -18,9 +18,6 @@
   },
   "env": {
     "APPLICATION_KEY": "@icq-key",
-    "SMTP_USER": "@smtp-user",
-    "SMTP_HOST": "@smtp-host",
-    "SMTP_PASSWORD": "@smtp-pass",
     "EMAIL_SENDER": "Equipe Magic Next <suporte@magicnext.com.br>"
   }
 }
