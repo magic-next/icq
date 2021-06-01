@@ -1,6 +1,6 @@
 {
   "name": "icq",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Magic Next Notification Service",
   "main": "src/app.js",
   "scripts": {
