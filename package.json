@@ -19,6 +19,7 @@
   "author": "zerodois <me@zerodois.dev>",
   "license": "MIT",
   "dependencies": {
+    "debug": "^4.3.4",
     "dotenv": "^8.1.0",
     "email-templates": "^6.0.0",
     "jsonwebtoken": "^8.5.1",
