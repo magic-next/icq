@@ -15,6 +15,8 @@ const auth = ({ privateKey }) => {
       ctx.body = 'Unathorized';
       ctx.status = 401;
     }
+
+    return false;
   };
 
   return middleware;
